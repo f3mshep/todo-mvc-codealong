@@ -1287,3 +1287,46 @@ Processing by ListsController#show as HTML
   [1m[36mItem Load (0.1ms)[0m  [1mSELECT "items".* FROM "items" WHERE "items"."list_id" = ?[0m  [["list_id", 2]]
   Rendered lists/show.html.erb within layouts/application (3.0ms)
 Completed 200 OK in 19ms (Views: 18.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/lists/2" for 127.0.0.1 at 2017-10-27 10:37:24 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ListsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mList Load (0.1ms)[0m  SELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT "items".* FROM "items" WHERE "items"."list_id" = ?[0m  [["list_id", 2]]
+  Rendered items/_item_li.html.erb (0.7ms)
+  Rendered lists/show.html.erb within layouts/application (11.8ms)
+Completed 500 Internal Server Error in 46ms (ActiveRecord: 0.6ms)
+
+SyntaxError (/home/alexandra/code/todo-mvc/app/views/items/_item_li.html.erb:10: syntax error, unexpected keyword_ensure, expecting keyword_end
+/home/alexandra/code/todo-mvc/app/views/items/_item_li.html.erb:12: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/views/items/_item_li.html.erb:10: syntax error, unexpected keyword_ensure, expecting keyword_end
+  app/views/items/_item_li.html.erb:12: syntax error, unexpected end-of-input, expecting keyword_end
+  app/views/lists/show.html.erb:14:in `block in _app_views_lists_show_html_erb___996891661669420922_47399607048620'
+  app/views/lists/show.html.erb:13:in `_app_views_lists_show_html_erb___996891661669420922_47399607048620'
+
+
+  Rendered /home/alexandra/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.8ms)
+  Rendered /home/alexandra/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.8ms)
+  Rendered /home/alexandra/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /home/alexandra/.rvm/gems/ruby-2.3.1/gems/actionpack-4.2.5.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (14.5ms)
+  Rendered /home/alexandra/.rvm/gems/ruby-2.3.1/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /home/alexandra/.rvm/gems/ruby-2.3.1/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /home/alexandra/.rvm/gems/ruby-2.3.1/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /home/alexandra/.rvm/gems/ruby-2.3.1/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /home/alexandra/.rvm/gems/ruby-2.3.1/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (12.3ms)
+  Rendered /home/alexandra/.rvm/gems/ruby-2.3.1/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/alexandra/.rvm/gems/ruby-2.3.1/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /home/alexandra/.rvm/gems/ruby-2.3.1/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (22.7ms)
+
+
+Started GET "/lists/2" for 127.0.0.1 at 2017-10-27 10:37:41 -0700
+Processing by ListsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mList Load (0.1ms)[0m  SELECT  "lists".* FROM "lists" WHERE "lists"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT "items".* FROM "items" WHERE "items"."list_id" = ?[0m  [["list_id", 2]]
+  Rendered items/_item_li.html.erb (1.8ms)
+  Rendered items/_item_li.html.erb (0.6ms)
+  Rendered lists/show.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 125ms (Views: 123.6ms | ActiveRecord: 0.2ms)

@@ -8,15 +8,20 @@ class ListsController < ApplicationController
 
   def show
     @list = List.find(params[:id])
+    @item = @list.items.build
   end
 
   def create
     @list = List.new(list_params)
-    @list.name = params[:list][:name]
-    @list.save
+    if @list.save
+      redirect_to list_url(@list)
+    else
+      @lists = List.all
+      render :index
+    end
 
-    redirect_to list_url(@list)
   end
+
   private
 
     def list_params # strong parameters

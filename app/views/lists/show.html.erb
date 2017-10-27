@@ -3,7 +3,6 @@
     <h1><%= @list.name %></h1>
   <%= form_for([@list, @item]) do |f| %>
     <%= f.text_field :description, :class => "new-todo", :placeholder => (@item.errors.full_messages_for(:name).first || "Enter a new item...") %>  
-    <%= f.text_field :description, :class => "new-todo" %>
     <%= f.submit :style => "display: none" %>
   <% end %>
   </header>
@@ -12,8 +11,15 @@
     <label for="toggle-all">Mark all as complete</label>
     <ul class="todo-list">
       <% @list.items.each do |item| %>
-        <li><div class="view"><%=item.description%></div></li>
-
+        <li class="<%='completed' if item.complete?%>">
+          <div class="view">
+            <%=form_for([@list, item]) do |f| %>
+              <%= f.check_box :status, :class => "toggle", :checked => (true if item.complete?) %>
+              <label><%=item.description%></label>
+              <!-- <input class="toggle" type="checkbox" <%="checked='checked'" if item.complete?%>  -->
+            <%end%>
+           </div>
+        </li>
       <%end%>
     </ul>
   </section>
